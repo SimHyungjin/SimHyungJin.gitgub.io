@@ -40,3 +40,4 @@ Console.WriteLine(c);
 //Convert와 Parse의 차이
 //Convert 비었을 경우 기초값 반환, 다른 형식 변환 가능
 //Parse 비었을 경우 에러 발생, string 형식만 변환 가능
+//Parse가 Convert보다 나은 점을 찾지 못하겠습니다.
