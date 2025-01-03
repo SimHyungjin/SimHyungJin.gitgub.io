@@ -1,0 +1,42 @@
+int level, count;
+float percentage, speed;
+string nickname, description;
+
+level = 1;
+count = 2;
+percentage = 1.0f;
+speed = 2.3f;
+nickname = "심";
+description = "설명";
+
+int iten = 10;
+float fTen = (float)iten;
+
+float fFive = 5.5f;
+int iFive = (int)fFive;
+
+int n = 10;
+float f = 0.5f;
+
+string nn = n.ToString();
+string ff = f.ToString();
+
+string strTen = "10";
+string strSix = "6.2";
+
+int sstrTen = Convert.ToInt32(strTen);
+float sstrSix = float.Parse(strSix);
+
+
+Console.WriteLine(sstrTen + sstrSix);
+
+
+string a = null;
+int b = Convert.ToInt32(a);
+Console.WriteLine(b);
+
+int c = int.Parse(a);
+Console.WriteLine(c);
+//Convert와 Parse의 차이
+//Convert 비었을 경우 기초값 반환, 다른 형식 변환 가능
+//Parse 비었을 경우 에러 발생, string 형식만 변환 가능
