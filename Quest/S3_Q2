@@ -1,0 +1,43 @@
+int ten = 10;
+
+int plus = ten + 7;
+int minus = ten - 3;
+int mult = ten * 2;
+float multf = ten * 1.5f;
+float divede = ten / 3.0f;
+int remain = ten % 4;
+
+Console.WriteLine(plus);
+Console.WriteLine(minus);
+Console.WriteLine(mult);
+Console.WriteLine(multf);
+Console.WriteLine(divede);
+Console.WriteLine(remain);
+
+string name = "심";
+int year = 2023;
+
+string introduce = "안녕하세요. 제 이름은 \"" + name + "\"입니다";
+string thisYear = "올해는 '" + year + "년' 입니다.";
+
+Console.WriteLine(introduce);
+Console.WriteLine(thisYear);
+
+bool result_1 = ten == 10;
+bool result_2 = ten != 11;
+bool result_3 = ten < 20;
+bool result_4 = ten > 5;
+
+Console.WriteLine(result_1);
+Console.WriteLine(result_2);
+Console.WriteLine(result_3);
+Console.WriteLine(result_4);
+
+Console.WriteLine("안녕하세요 \"쟤 이름은 "); //\" 문자열 내에 "표시
+Console.WriteLine("안녕하세요 \n쟤 이름은 "); //\n 한줄 내려쓰기
+Console.WriteLine("안녕하세요 \t쟤 이름은 "); //\t 들여쓰기
+Console.WriteLine("안녕하세요 \'쟤 이름은 "); //\' '표시
+Console.WriteLine("안녕하세요 \\쟤 이름은 "); //\\ \표시
+
+//사칙연산 우선순위
+//
