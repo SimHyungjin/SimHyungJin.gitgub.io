@@ -1,0 +1,40 @@
+Console.WriteLine("첫번째 수를 입력해 주세요.");
+string fisrtInput = Console.ReadLine();
+
+Console.WriteLine("두번 째 수를 입력해 주세요.");
+string secondInput = Console.ReadLine();
+
+bool firstInt = int.TryParse(fisrtInput, out int firstresult);
+bool secondInt = int.TryParse(secondInput, out int secondresult);
+//1번
+
+if (firstInt && secondInt)
+    Console.WriteLine("두 데이터는 모두 숫자입니다");
+else
+    Console.WriteLine("숫자가 아닙니다.");
+
+//2번
+
+if (firstInt && secondInt)
+    Console.WriteLine("두 데이터는 모두 숫자입니다.");
+else if (firstInt || secondInt)
+    Console.WriteLine("하나의 데이터만 숫자입니다");
+else
+    Console.WriteLine("두 데이터 모두 숫자가 아닙니다.");
+
+
+//3번
+
+if (firstInt && secondInt)
+{
+    if(firstresult == secondresult)
+        Console.WriteLine(firstresult + "와(과) " + secondresult + "은(는) 같습니다.");
+    else
+        if(firstresult > secondresult)
+            Console.WriteLine(firstresult + "은(는) " + secondresult + "보다 큽니다.");
+        else
+          Console.WriteLine(firstresult + "은(는) " + secondresult + "보다 작습니다.");
+}
+else
+    Console.WriteLine("두 개의 숫자를 입력해 주세요");
+
