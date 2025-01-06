@@ -1,0 +1,44 @@
+// Console.ReadLine(); // 데이트의 입력
+
+string input = Console.ReadLine();
+bool isInt = int.TryParse(input, out int x);
+
+if (isInt == true)
+    Console.WriteLine("숫자입니다.");
+else
+    Console.WriteLine("문자열입니다");
+
+bool isBool = bool.TryParse(input, out bool bbool);
+
+if (isInt)
+    Console.WriteLine("숫자입니다");
+else if (isBool)
+    Console.WriteLine("불리언입니다");
+else
+    Console.WriteLine("문자열입니다");
+
+if (isInt)
+{
+    if (x >= 100)
+        Console.WriteLine(x + "은(는) 100보다 같거나 큰 수 입니다");
+    else
+        Console.WriteLine(x + "은(는) 100보다 작은 수입니다");
+}
+else
+    Console.WriteLine("숫자가 아닙니다");
+
+if (isInt)
+{
+    if (x % 2 == 0)
+        Console.WriteLine(x + "은(는) 짝수 입니다");
+    else
+        Console.WriteLine(x + "은(는) 홀수 입니다");
+}
+else
+    Console.WriteLine("숫자가 아닙니다");
+
+//if와 switch case의 차이
+//if 조건문으로 swtich case 조건문 완벽 대체 가능
+//switch case가 if문보다 가독성에서 우세
+//하지만 switch case의 조건으로는 char형과 int형만을 적용 가능
+//switch case의 경우 조건이 간단한 경우에만 사용하며, 코드의 가독성을 높이는 것이 목표로 보입니다.
