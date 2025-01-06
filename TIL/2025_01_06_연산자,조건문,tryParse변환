@@ -25,8 +25,15 @@ TryParse
   문자열을 매개변수의 자료형태로 변환 가능한지의 여부를 반환
   매개변수에 변환
 
-if(조건)
-else if(조건 내의 다른 조건)
-esle 그외
+if
+  if(조건)
+  else if(조건 내의 다른 조건)
+  esle 그외
 
-if문의 조건에는 == true의 경우 생략 가능
+  if문의 조건에는 == true의 경우 생략 가능
+
+if와 switch case의 차이
+  if 조건문으로 swtich case 조건문 완벽 대체 가능
+  switch case가 if문보다 가독성에서 우세
+  하지만 switch case의 조건으로는 char형과 int형만을 적용 가능
+  switch case의 경우 조건이 간단한 경우에만 사용하며, 코드의 가독성을 높이는 것이 목표로 보입니다.
