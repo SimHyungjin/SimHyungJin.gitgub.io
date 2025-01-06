@@ -6,6 +6,7 @@ string secondInput = Console.ReadLine();
 
 bool firstInt = int.TryParse(fisrtInput, out int firstresult);
 bool secondInt = int.TryParse(secondInput, out int secondresult);
+
 //1번
 
 if (firstInt && secondInt)
