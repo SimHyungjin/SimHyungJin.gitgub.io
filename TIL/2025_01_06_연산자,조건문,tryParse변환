@@ -37,3 +37,8 @@ if와 switch case의 차이
   switch case가 if문보다 가독성에서 우세
   하지만 switch case의 조건으로는 char형과 int형만을 적용 가능
   switch case의 경우 조건이 간단한 경우에만 사용하며, 코드의 가독성을 높이는 것이 목표로 보입니다.
+
+논리 연산자
+  && and조건 두 조건을 모두 만족 하여야 true 그 외에는 false
+  || or조건 두 조건 중 하나만 만족 한다면 true
+  ! !a a조건의 반대를 반환
