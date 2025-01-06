@@ -22,4 +22,9 @@ Console.ReadLine(); 함수
 
 TryParse
   bool 이름 = 자료형.tryParse(string 변환할 문자열, out 매개변수);
-  문자열을 
+  문자열을 매개변수의 자료형태로 변환 가능한지의 여부를 반환
+  매개변수에 변환
+
+if문의 조건에는 == true의 경우 생략 가능
+
+
