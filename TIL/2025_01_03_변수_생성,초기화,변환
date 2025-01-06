@@ -1,7 +1,17 @@
 변수 생성 및 초기화
+  자료형 변수이름 = 값
+
 정수형과 실수형의 형변환
+  ex)float fTen = (float)iTen; // int형이었던 iTen을 float형으로 형변환
+     int iTen = (int)fFive; // float형이었던 fFive를 int형으로 형변환
+
 정수형과 실수형의 문자열 변환
+  ex)string nn = n.ToString(); // 숫자를 문자열string형으로 변환
+
 문자열의 정수형과 실수형의 형변환
+  ex)int iTen = Convert.ToInt32(strTen); // string형이었던 strTen을 Convert를 사용 하여 32비트 내의 int형 변환
+     float fTen = float.Parse(strTen); // string형이었던 strTen을 Parse를 사용하여 float형으로 변환
+
 Convert 와 Parse의 차이점
   공통점
     -두가지 모두 문자열을 형변환할 때 주로 사용
