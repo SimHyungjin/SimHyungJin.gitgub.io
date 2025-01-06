@@ -1,0 +1,22 @@
+Console.WriteLine("Q. 대한민국의 수도는 어디인가요? \n1.인천\t2.평창\t3.서울\t4.부산");
+
+string input = Console.ReadLine();
+
+bool isInt = int.TryParse(input, out int num);
+
+int isTrue = 3;
+
+if (isInt)
+{
+    if (1 <= num && num <= 4)
+    {
+        if (num == isTrue)
+            Console.WriteLine("정답입니다!");
+        else
+            Console.WriteLine("오답입니다!.");
+     }
+    else
+        Console.WriteLine("1~4의 숫자를 입력해주세요.");
+}
+else
+    Console.WriteLine("숫자가 아닙니다.");
