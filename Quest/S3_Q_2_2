@@ -1,0 +1,17 @@
+//float[] num = { 10, 20, 30, 40, 50 };
+float[] num = new float[5];
+for(int i = 0; i < num.Length; i++)
+{
+    num[i] = 10 * i + 10;
+}
+
+float sum = 0;
+float average= 1;
+
+for(int i=0; i<num.Length; i++)
+{
+    sum += num[i];
+}
+average = sum / num.Length;
+Console.WriteLine($"Sum: {sum}");
+Console.WriteLine($"Average: {average}");
