@@ -1,0 +1,51 @@
+//1번
+
+//Console.WriteLine("이름을 입력해주세요. (3~10글자)");
+//string input = Console.ReadLine();
+//int length = input.Length;
+
+//if (3 <= length && length <= 10)
+//{
+//    Console.WriteLine("안녕하세요! 제 이름은 " + input + " 입니다.");
+//}
+//else
+//    Console.WriteLine("이름을 확인해주세요");
+
+//2번
+
+//bool isSuccess;
+//do
+//{
+//    Console.WriteLine("이름을 입력해주세요. (3~10글자)");
+
+//    string input = Console.ReadLine();
+//    int length = input.Length;
+//    isSuccess = 3 <= length && length <= 10;
+//    if (isSuccess)
+//        Console.WriteLine("안녕하세요! 제 이름은 " + input + " 입니다.");
+//    else
+//        Console.WriteLine("이름을 확인해주세요");
+//}
+//while (!isSuccess);
+
+//3번
+
+bool isSuccess;
+do
+{
+    Console.WriteLine("이름을 입력해주세요. (3~10글자)");
+
+    string input = Console.ReadLine();
+    int length = input.Length;
+    Console.Clear();
+
+    isSuccess = 3 <= length && length <= 10;
+    if (isSuccess)
+        Console.WriteLine("안녕하세요! 제 이름은 " + input + " 입니다.");
+    else
+    {
+        Console.WriteLine("이름을 확인해주세요");
+    }
+    
+}
+while (!isSuccess);
