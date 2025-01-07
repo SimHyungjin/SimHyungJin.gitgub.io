@@ -1,0 +1,17 @@
+Console.WriteLine("수를 입력해주세요");
+string input = Console.ReadLine();
+bool isInt = int.TryParse(input, out int value);
+
+if (isInt)
+{
+    int num = value;
+    int mult = 1;
+    while(value > 0)
+    {
+        mult *= value;
+        value--;
+    }    
+    Console.WriteLine($"Factorial of {num} of {mult}");
+}
+else
+    Console.WriteLine("숫자가 아닙니다.");
