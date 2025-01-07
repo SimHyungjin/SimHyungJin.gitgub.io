@@ -1,0 +1,54 @@
+Console.Clear() - 콘솔 창 초기화
+
+Random random = new Random();
+int ran = random.Next(); <- 0과 int.MaxValue 사이의 난수 생성
+int ran = random.Next(0,100); <- 0과 100사이의 난수 생성
+
+===================================================================================
+
+기본
+  ex)1
+  Console.WriteLine("aa");
+  ex)2
+  string a = "aa";
+  Console.WriteLine(a);
+
+Format() 메소드
+  중괄호를 이용하여 코드에서 사용하는 변수나, 서식 입력
+  ,로 끊어주며 순차대로 적용
+  ex)1
+  Console.WriteLine("Example1 : {0}, {1}", "BlockDMask", 1212); 
+  ->Example1 : BlockDMask, 1212
+  ex)2
+  int num = 999;
+  string str1 = string.Format("Example2 : {0}, {1}, {2}", "BlockDMask", 3434, num);
+  Console.WriteLine(str1);
+  ->Example2 : BlockDMask, 3232, 999
+
+문자열 보간
+  c#6.0이부 터사용 가능.
+  string 안에 직접 변수 이름 입력.
+  큰 따움표 앞에 $표기를 하여 중괄호 안에 변수 입력
+  ex)sring name = A
+     Console.WriteLine($"제 이름은 {name}입니다."); -> 제 이름은 A입니다.
+
+string word = "abcd"
+int length = word.length; <- 문자열의 길이
+
+string a = "a";
+string b = "b";
+bool isEqual = a == b; //false 문자열의 같음 비교 방법1
+bool isEqual2 = a.Equals(b); //false 문자열의 같음 비교 방법2
+
+Split("문자")를 기준으로 배열에 분할
+string message = "Hello, World!";
+string[] words = message.Split(','); // { "Hello", " World!" }
+
+Substring(시작, 끝) 으로 추출 가능
+string message = "Hello, World!";
+string hello = message.Substring(0, 5); // "Hello"
+
+문자 배열 변환
+string message = "Hello";
+char[] chars = message.ToCharArray(); // { 'H', 'e', 'l', 'l', 'o' }
+string newMessage = new string(chars); // "Hello"
