@@ -1,0 +1,22 @@
+Random random = new Random();
+int tnum = random.Next(1, 101);
+
+
+while (true)
+{
+    int input = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine($"Enter your guess (1-100): {input}");
+    if (input < tnum)
+    {
+        Console.WriteLine("Too low! Try again.");
+    }
+    else if (input > tnum)
+    {
+        Console.WriteLine("Too high! Try again.");
+    }
+    else
+    {
+        Console.WriteLine("Congratulations! You guessed the number.");
+        break;
+    }
+}
