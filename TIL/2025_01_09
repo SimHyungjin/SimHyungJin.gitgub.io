@@ -7,3 +7,24 @@ char[] b = { 'a', 'b', 'c' };
 Console.WriteLine(a == b); // false
 Console.WriteLine(a.Equals(b)); // false <- equal 메소드도 있어 사용 해보았지만 실패
 Console.WriteLine(a.SequenceEqual(b)); // true
+
+=========================Unity======================================================
+Hierarchy 프로젝트 내 오브젝트
+Inspector 오브젝트 속성
+Project 파일
+
+Scene 개발할떄 보는 환경
+Game 메인 카메라가 보여주는 실제 플레이 화면
+
+Order in Layer 오브젝트 보이는 순위
+
+애니 메이션 생성
+  create -> animation -> animation clip
+  오브젝트 인스펙터 창에 드래그
+
+스크립트
+
+  Start 실행시 단 한번만 실행
+  Update 매 프레임미다 업데이트
+
+  new Vector3(1,0,0) = Vector3.right
