@@ -1,0 +1,57 @@
+string secretWord = "hangman";
+char[] charSecretWord = secretWord.ToCharArray();
+
+char[] guessWord = new char[secretWord.Length];
+for (int i = 0; i < charSecretWord.Length; i++)
+{ 
+    guessWord[i] = '_';
+}
+
+int attempts = 6;
+bool wordGuessed = false;
+
+int length = secretWord.Length;
+
+while (!wordGuessed)
+{
+    bool success = false;
+    Console.WriteLine(guessWord);
+    Console.WriteLine($"Life = {attempts}");
+
+    string input = Console.ReadLine();
+
+    if (input.Length == 1)
+    {
+        char num = input.ToCharArray()[0];
+
+        for (int i = 0; i < length; i++)
+        {
+            if (charSecretWord[i] == num)
+            {
+                guessWord[i] = num;
+                success = true;
+            }
+        }
+        if (!success)
+        {
+            attempts--;
+        }
+
+        if (attempts == 0)
+        {
+            Console.WriteLine("Fail");
+            wordGuessed = true;
+        }
+        if (secretWord.SequenceEqual(guessWord))
+        {
+            Console.WriteLine("Success");
+            wordGuessed = true;
+        }
+    }
+    else
+    {
+        Console.WriteLine("Please one word");
+    }
+
+
+}
