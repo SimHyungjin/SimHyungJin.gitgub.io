@@ -1,0 +1,63 @@
+int[] targetNumber = new int[3];
+int[] userGuess = new int[3];
+bool guessedCorrectly = false;
+int attempts = 0;
+Random random = new Random();
+
+
+for (int i = 0; i < 3; i++)
+{
+    targetNumber[i] = random.Next(1, 9);
+}
+
+//targetNumber[0] = 9;
+//targetNumber[1] = 8;
+//targetNumber[2] = 7;
+
+for (int i = 0; i < 3; i++)
+{
+    Console.Write(targetNumber[i]);
+}
+Console.WriteLine();
+
+
+while (!guessedCorrectly)
+{
+    Console.Write("Enter your Guess3 digits: ");
+    string input = Console.ReadLine();
+    int inputNum = Convert.ToInt32(input);
+    int strikes = 0;
+    int balls = 0;
+
+    for (int i = 1; i < input.Length+1; i++)
+    {
+        userGuess[input.Length-i] = inputNum % 10;
+        inputNum = inputNum / 10;
+    }
+
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            if (targetNumber[i] == userGuess[j] && i == j)
+            {
+                strikes++;
+            }
+            else if (targetNumber[i] == userGuess[j])
+            {
+                balls++;
+            }
+        }  
+    }
+
+    if (strikes == 3)
+    {
+        Console.WriteLine($"Congratulations! you've guessed the number in {attempts} attepts.");
+        guessedCorrectly = true;
+    }
+    else
+    {
+        Console.WriteLine($"{strikes} Strike(s), {balls} Ball(s)");
+        attempts++;
+    }
+ }
