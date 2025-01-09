@@ -8,11 +8,20 @@ Console.WriteLine(a == b); // false
 Console.WriteLine(a.Equals(b)); // false <- equal 메소드도 있어 사용 해보았지만 실패
 Console.WriteLine(a.SequenceEqual(b)); // true
 
-=========================Unity======================================================
+====================================Unity============================================
 Hierarchy 프로젝트 내 오브젝트
 Inspector 오브젝트 속성
 Project 파일
 
+Inspector
+  Rigidbody 2D <- 2D 물리 속성
+  Colider <- 충돌 확인
+
+
+
+
+
+====================================코드============================================
 Scene 개발할떄 보는 환경
 Game 메인 카메라가 보여주는 실제 플레이 화면
 
@@ -24,7 +33,14 @@ Order in Layer 오브젝트 보이는 순위
 
 스크립트
 
-  Start 실행시 단 한번만 실행
-  Update 매 프레임미다 업데이트
+  Start <- 실행시 단 한번만 실행
+  Update <- 매 프레임미다 업데이트
+  OnCollisionEnter2D(Collision2D collision) <- 충돌 검사
+    collision.gameObject.CompareTag("Tag") <- 동일 Tag명의 오브젝트와 충돌했는지 검사 
 
+  Application.targetFrameRate = 60; <- 프레임 수 고정
   new Vector3(1,0,0) = Vector3.right
+  transform.position <- 오브젝트의 위치
+  GetComponent<>(); <- 해당 스크립트를 가지고 있는 오브젝트의 속성 접근
+
+  Random.Range(x,y) <- x이상 y미만의 랜덤값 생성
