@@ -5,5 +5,5 @@ char[] a = { 'a', 'b', 'c' };
 char[] b = { 'a', 'b', 'c' };
 
 Console.WriteLine(a == b); // false
-Console.WriteLine(a.Equals(b)); // false <- equal 메소드도 있어 사용 해보았지만 확인 결과 string 형만 지원
+Console.WriteLine(a.Equals(b)); // false <- equal 메소드도 있어 사용 해보았지만 실패
 Console.WriteLine(a.SequenceEqual(b)); // true
