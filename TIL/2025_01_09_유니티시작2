@@ -1,0 +1,13 @@
+Time.deltaTime; <- 마지막 프레임이 완료된 후 경과한 시간을 반환
+
+ToString() 
+  a.ToString("F1"); // 1.2
+  a.ToString("F2"); // 1.23
+  a.ToString("F3"); // 1.234
+  F숫자 를 넣을 경우 원하는 만큼의 소수점 자리까지 표현
+  a.ToString("N1"); // 10,000.1
+  a.ToString("N2"); // 10,000.12
+  a.ToString("N3"); // 10,000.123
+  N숫자 를 넣을 경우 원하는 만큼의 소수점을 1000단위로 끊어 표현
+
+SceneManager.LoadScene("name") <- name이라는 이름의 씬을 로딩
