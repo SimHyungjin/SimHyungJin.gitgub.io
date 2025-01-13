@@ -1,0 +1,16 @@
+유니티 패키지 import
+  패키지를 프로젝트창에 드래그
+
+ui - rect transform - pivot <- ui의 pivot위치 조절
+
+inspector - rigdbody2D - BodyType(Kinematic) <- 중력의 영향 받지 않음
+inspector - colider - is Trigger <-실제로 충돌하지는 않지만 충돌했다는 신호만 보냄
+  
+=============================================================================================
+
+Application.targetFrameRate = 60; <- 프레임 값 고정
+
+Vector3.up <- Vector3(0,1,0);
+Instantiate(food, new Vector2(x, y), Quaternion.identity); <- Gmaobject food를 위치 x,y에 회전 없이 생성
+
+Camera.main.ScreenToWorldPoint(Input.mousePosition) <- 메인 카메라가 비추고 있는 씬의 좌표값 사용
