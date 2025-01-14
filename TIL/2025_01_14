@@ -1,0 +1,27 @@
+inspector - add compnonent - Audio Source
+
+  AuioSource형 변수.clip = this.clip
+  AuioSource형 변수.Play()               <- 하나의 파일만을 재생
+  
+  AuioSource형 변수.PlayOneShot(AudioClip 변수) <- 동시에 여러개의 파일을 재생
+
+using System.Linq <- 컬렉션 형태의 데이터를 가공할 때 사용하는 메서드 제공
+
+orderby <- 정렬 연산자
+==========================================================================================================================
+int[] arr = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 ,7, 7 }; <- 16의 크기를 가진 int형 배열 arr 생성 및 초기화
+		arr = arr.OrderBy(x => Random.Range(0f, 7f)).ToArray(); <- 배열 arr에 랜덤하게 원래 가지고 있던 수를 재배치
+OrderBy가 오름차순으로 정렬하고 이를 배열로 변환한다는 것은 알겠지만, (x => Random.Range(0f, 7f))의 의미가 이해가 잘 안되어 어째서 랜덤한 배열이 완성되는지 이해가 힘듬.
+
+for (int i = 0; i < 16; i++)
+    {
+        GameObject go = Instantiate(card, this.transform);
+
+        float x = (i / 4) * 1.4f - 2.1f;
+        float y = (i % 4) * 1.4f - 3.0f;
+        go.transform.position = new Vector2(x, y);
+    }
+
+4*4 와 같은 이중 배열 형태을 만들 때 이중 반복문만을 사용하였지만, 
+나누기와 나머지 연산을 통해 필요 없는 반복문을 지워 효율적으로 짤 수 있음을 배웠습니다.
+
