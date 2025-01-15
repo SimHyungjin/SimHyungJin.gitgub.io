@@ -1,0 +1,107 @@
+public class GameManager : MonoBehaviour
+{
+    public static GameManager instance;
+
+    public GameObject rain;
+    public GameObject endPannel;
+
+    public Text timeTxt;
+    public Text scoreTxt;
+
+    float time = 30f;
+    int totalscore = 0;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        Time.timeScale = 1.0f;
+    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        InvokeRepeating("MakeRain",0f, 1f);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        time -= Time.deltaTime;
+        timeTxt.text = time.ToString("F2");
+        scoreTxt.text = totalscore.ToString();
+        if (time <= 0)
+        {
+            time = 0;
+            GameOver();
+        }
+    }
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+        endPannel.SetActive(true);
+
+    }
+    public void MakeRain()
+    {
+        Instantiate(rain);
+    }
+    public void AddScore(int score)
+    {
+        totalscore += score;
+    }
+
+}
+===================================================================================================================================================
+public class Rtan : MonoBehaviour
+{
+    SpriteRenderer sprite;
+    float speed = 3.0f;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        sprite = GetComponent<SpriteRenderer>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.position += Vector3.right*Time.deltaTime*speed;
+        if(transform.position.x > 2.4f)
+        {
+            speed *= -1;
+            sprite.flipX = true;
+        }
+        else if(transform.position.x < -2.4f)
+        {
+            speed *= -1;
+            sprite.flipX = false;
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (!sprite.flipX)
+            {
+                speed *= -1;
+                sprite.flipX = true;
+            }
+            else if (sprite.flipX)
+            {
+                speed *= -1;
+                sprite.flipX = false;
+            }
+        }
+        //posiontion 형태가 vector3형이지만 2d게임이라고 vector2형을 집어넣으려 했음.
+        //transform.Translate는 월드 자표계 기준으로, transform.position은 로컬 좌표계 기준으로 이동.
+    }
+}
+
+//혼자 완성 후, 예시와 달랐던 점
+  GameManger
+          if (instance == null)
+            instance = this; //GameManager가 없을 때만 생성
+          Update 내에 time의 조건을 설정 하지 않아 실제 게임 내에서는 문제 없어 보이지만 디버그로 쓸모 없는 계산이 계속 됐음을 발견
+          AddScore내에 점수계산만 넣고 Update 내에 ScoreTxt 표현을 하여 AddScore을 호출할때만 계산하면 됐던 연산을 매 프레임마다 함
+  Rtan
+          마우스를 클릭시 flip을 x = !x와 같이 항상 반대 값을 넣을 수 있음에도 참과 거짓일 경우를 나눠 작성
+          가끔 캐릭터의 위치가 구석에 갔을 경우 버벅이며 움직이지 않음. 끝에 닿았을 경우, 최소/최대 수치의 절대값보다 약간 낮게 위치를 수정하면 해결 할 수 있지만, 예시의 코드에서는 왜 이런 현상이 발생하지 않았는지에 대해서는 아직 잘 모르겠습니다.
