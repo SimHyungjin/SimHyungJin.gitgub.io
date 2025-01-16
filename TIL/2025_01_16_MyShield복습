@@ -1,0 +1,115 @@
+public class Gamemanager : MonoBehaviour
+{
+    public static Gamemanager instance;
+
+    public Animator animator;
+    public Text timeTxt;
+    public Text score;
+    public Text bestScore;
+
+    float time = 0.0f;
+    float bestTime;
+    string key;
+
+    public GameObject box;
+    public GameObject endPannel;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        Time.timeScale = 1.0f;
+    }
+    void Start()
+    {
+        InvokeRepeating("MakeBox",0f, 0.5f);
+    }
+
+    void Update()
+    {
+        time += Time.deltaTime;
+        if (Time.timeScale != 0f)
+        {
+            timeTxt.text = time.ToString("F2");
+        }
+    }
+    public void MakeBox()
+    {
+        Instantiate(box);
+    }
+
+    public void GameOver()
+    {
+        score.text = time.ToString("F2");
+        animator.SetBool("isBool", true);
+        Invoke("TimeStop", 0.5f);
+        if(PlayerPrefs.HasKey(key))
+        {
+            float best = PlayerPrefs.GetFloat(key);
+            if (best < time)
+            {
+                PlayerPrefs.SetFloat(key, time);
+                bestScore.text = time.ToString("F2");
+            }
+            else
+                bestScore.text = best.ToString("F2");
+        }
+        else
+        {
+            PlayerPrefs.SetFloat(key, time);
+            bestScore.text = time.ToString("F2");
+        }
+        endPannel.SetActive(true);
+    }
+    public void TimeStop()
+    {
+        Time.timeScale = 0f;
+    }
+}
+=================================================================================
+public class Player : MonoBehaviour
+{
+    void Update()
+    {
+        //transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition); //
+        Vector2 mous = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = mous;
+    }
+}
+=================================================================================
+public class Box : MonoBehaviour
+{
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        float x = Random.Range(-2.4f, 2.4f);
+        float y = Random.Range(3.5f, 6f);
+        transform.position = new Vector2(x,y);
+        float size = Random.Range(0.5f, 1.5f);
+        transform.localScale *= size;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(transform.position.y < -10)
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ballon"))
+        {
+            Gamemanager.instance.GameOver();
+        }
+    }
+}
+=================================================================================
+GameManager
+  RtanRain과 비슷하여 큰 문제는 없없지만 PlayerPrefs을 적용하는데 시간이 많이 걸림.
+  PlayerPrefs를 사용하는데에 문제가 아닌 조건문 내에 변수 배치에 시간이 많이 끌림.
+Player
+  처음 Player 위치를 마우스 위치 그대로 받아 왔었는데, 내려오는 박스는 막을 수 있었지만 화면에 표현이 되지 않았음.
+  Vector2가 아닌 Vector3 값을 사용하여 z값 때문인 건 알 수 있었으나 z 값떄문이라면 z값이 다른데 막을 수 있는 이유는 의문.
