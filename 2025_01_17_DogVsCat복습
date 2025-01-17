@@ -1,0 +1,81 @@
+using UnityEngine;
+
+public class Cat : MonoBehaviour
+{
+    public RectTransform front;
+    float full = 5;
+    float energy = 5;
+    float speed;
+    public int type;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        float x = Random.Range(-11f, 11f);
+        float y = Random.Range(30f, 36f);
+        transform.position = new Vector2(x, y);
+
+        type = Random.Range(0, 3);
+
+        if (type == 0 )
+        {
+            full = 10;
+            energy = 10;
+            speed = 0.01f;
+        }
+        if( type == 1 )
+        {
+            speed = 0.02f;
+        }
+        if(type == 2)
+        {
+            speed = 0.03f;
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(energy > 0)
+        {
+            transform.position += Vector3.down * speed;
+        }
+        else
+        {
+            if(transform.position.x < 0)
+            {
+                transform.position += Vector3.left * 0.05f;
+            }
+            else
+            {
+                transform.position += Vector3.right * 0.05f;
+            }
+            Invoke("DestroyCat", 1f);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            GameManager.instance.GameOver();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (energy > 0)
+        {
+            if (collision.gameObject.CompareTag("Food"))
+            {
+                energy -= 1;
+                front.localScale = new Vector3(energy / full, 1, 1);
+                Destroy(collision.gameObject);
+            }
+        }
+    }
+    public void DestroyCat()
+    {
+        Destroy(gameObject);
+    }
+}
+
+food가 즉시 사라지지 않아 고민 중
