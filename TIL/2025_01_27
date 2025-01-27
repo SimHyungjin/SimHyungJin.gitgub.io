@@ -1,0 +1,51 @@
+리터럴 (literal)
+    1. **리터럴의 개념과 역할**
+        1. 프로그램에서 직접 사용되는 상수 값으로, 소스 코드에 직접 기록되어 있는 값
+        2. C#에서 리터럴은 컴파일러에 의해 상수 값으로 처리되며, 변수나 상수에 할당되거나 연산에 사용
+    2. **리터럴의 종류와 예시**
+        1. C#에서는 다양한 종류의 리터럴을 지원
+        2. 각각의 리터럴은 다른 형식으로 표현되며, 다양한 값의 범위를 가지고 있습니다.
+
+        10.0f, 'a', "string" 등을 리터럴이라 함.
+
+변수명
+  키워드 사용 불가 ex) as, case 등등..
+  식별자
+    - 첫 문자는 알파벳, 언더스코어(_)가 올 수 있습니다.
+    - 두번째 문자부터는 알파벳, 언더스코어, 숫자가 올 수 있습니다.
+    - 대소문자를 구분합니다.
+    
+형변환
+  명시작 형변환
+    직접적으로 조절하여 형변환
+  암시적 형변환
+    범위가 작은 자료형을 코드를 작성하지 않고 큰 범위의 자료형으로 변환
+
+Var 
+  자료형을 컴파일러에 의해 자동으로 결정
+
+String
+  string str;
+  분할 str.Split(',');
+  검색 str.Index("a");
+  대체 str.Replace("Hello", "Halo");
+
+컬랙션
+  배열과 비슷한 자료 구조
+    List - 가변적인 크기를 가진 배열
+      List<int> numbers = new List<int>();
+      number.Add();
+      number.Remove();
+    Dictionary - Key값과 Value 한 쌍의 데이터로 저장
+      Dictionary<string, int> scores = new Dictionary<string, int>()
+      scores.Add("key",value)
+      Score.Remove("key",value)
+    Stack - 후입 선출
+      tack<int> stack = new Stack<int>();
+      stack.Push(); - push = 데이터 삽입
+      stack.Pop(); - Pop = 데이터 가져오기
+    Queue - 선입선출
+      Queue<int> queue = new Queue<int>();
+      queue.Equeue - Equeue = 데이터 삽입
+      queue.Dequeue - Dequeue = 데이터 가져오기
+    
