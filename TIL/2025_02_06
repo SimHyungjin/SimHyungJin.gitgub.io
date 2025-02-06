@@ -14,3 +14,8 @@ float 형태를 정수형으로 변환
   내림 Math.Floor(value)
   절삭 Math.Truncate(value)
   반올림 Math.Round(value)
+
+as, is 연산자
+  객체를 캐스팅 할 떄 사용되는 연산자
+  as의 경우 결과를 리턴하고 실패하면 null
+  is의 경우 캐스팅이 성공했음을 기준으로 ture false 리턴
