@@ -1,0 +1,16 @@
+Monsters.Add(monsterList[i]);
+문제발생
+  리스트에 넣은 값들이 정보를 공유
+  
+public Monster Spawn()
+    return new Monster(Lv, Name, Health, Atk);
+Monster monster = monsterList[random.Next(0, monsterList.Count)];
+monsters.Add(monster.Spawn());
+해결
+  같은 주소를 바라보기 떄문 새로운 주소를 각 객체마다 바라보는 방향으로 변경
+
+float 형태를 정수형으로 변환
+  소수점 내리기 (int)value
+  내림 Math.Floor(value)
+  절삭 Math.Truncate(value)
+  반올림 Math.Round(value)
