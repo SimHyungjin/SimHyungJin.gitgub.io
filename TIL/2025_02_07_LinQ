@@ -10,3 +10,5 @@ Monster weakestMonster = monsters.OrderBy(m => m.Health).FirstOrDefault();
 // 체력이 0보다 큰 몬스터들만 필터링
 List<Monster> aliveMonsters = monsters.Where(m => m.Health > 0).ToList();
 사용할 일이 많아보여서 일단 저장!
+
+함수를 옮겨다니면서 값을 옮길 때는 전역변수로 해도 괜찮다.
