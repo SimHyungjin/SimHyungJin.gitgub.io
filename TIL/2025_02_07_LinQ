@@ -1,0 +1,12 @@
+리스트에서 특정 조건을 만족하는 개수 세기
+// 체력이 50 이상인 몬스터의 개수
+int strongMonsters = monsters.Count(m => m.Health >= 50);
+
+리스트에서 특정 조건을 만족하는 요소 찾기
+// 체력이 가장 낮은 몬스터 찾기
+Monster weakestMonster = monsters.OrderBy(m => m.Health).FirstOrDefault();
+
+리스트에서 특정 조건을 만족하는 요소만 가져오기
+// 체력이 0보다 큰 몬스터들만 필터링
+List<Monster> aliveMonsters = monsters.Where(m => m.Health > 0).ToList();
+사용할 일이 많아보여서 일단 저장!
