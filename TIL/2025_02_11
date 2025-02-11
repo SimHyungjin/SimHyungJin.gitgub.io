@@ -1,0 +1,57 @@
+if (!(gm.player.dungeonLevel % 3 == 0))
+{
+  MonsterSpawn(gm.monsterList, random.Next(1, 5));
+}
+else
+{
+  MonsterSpawn(gm.bossmonsterList, 1);
+  MonsterSpawn(gm.monsterList, random.Next(1, 4));
+}
+이 부분에서 문제가 생겨 해결하는데 시간을 많이 사용
+
+for (int i = 0; i < spawnNum; i++)
+{
+  Monster monster = monsterList[random.Next(0, monsterList.Count)];
+  gm.monsters.Add(monster.Spawn());
+  gm.monsters[i].Atk += (int)(gm.player.dungeonLevel * (gm.player.dungeonLevel/3));
+  gm.monsters[i].Health += (int)(gm.player.dungeonLevel * (gm.player.dungeonLevel / 3)*3);
+  gm.monsters[i].MaxHealth += (int)(gm.player.dungeonLevel * (gm.player.dungeonLevel / 3)*3);
+  gm.monsters[i].Lv += gm.monsters[i].Atk/10;
+}
+//원본 코드
+                
+public void MonsterSpawn(List<Monster> monsterList, int spawnNum)
+{
+    for (int i = 0; i < spawnNum; i++)
+    {
+        Monster monster = monsterList[random.Next(0, monsterList.Count)];
+        Monster Addmonster = monster.Spawn();
+        if (Addmonster.MonsterType != "이벤트")
+        {
+            Addmonster.Atk += (int)(gm.player.dungeonLevel * (gm.player.dungeonLevel / 3));
+            Addmonster.Health += (int)(gm.player.dungeonLevel * (gm.player.dungeonLevel / 3) * 3);
+            Addmonster.MaxHealth += (int)(gm.player.dungeonLevel * (gm.player.dungeonLevel / 3) * 3);
+        }
+        else
+        {
+            Addmonster.Atk += gm.player.dungeonLevel;
+            Addmonster.Health += gm.player.dungeonLevel;
+            Addmonster.MaxHealth += gm.player.dungeonLevel;
+        }
+        Addmonster.Lv = Addmonster.Atk / 10+1;
+        gm.monsters.Add(Addmonster);
+    }
+}
+//수정 코드
+
+문제 이유
+  MonsterSpawn을 한번만 돌렸을 경우에는 문제 발생x
+  두번 돌렸을 경우 인덱스의 값을 0부터 시작였기 때문에 0~4번 인덱스의 값을 변경하기를 원했지만, 원본에서는 0~3, 0에 값을 변경하는 코드가 되어버림
+해결
+  인덱스 값을 사용하지 않고 생성후 값을 변경한 상태로 리스트에 넣는 것으로 변경
+  인덱스 값을 활용하고 싶다면, 값을 변경하지 않은 상태로 생성을 완료 한 후 다시 리스트를 돌아다니며 값을 변경해도 문제 발생x
+===========================================================================================================================================
+Dictionary<int, Quest> quests
+  키와 값 두가지 종류의 정보를 저장
+HashSet<int>
+  키를 통해 접근
