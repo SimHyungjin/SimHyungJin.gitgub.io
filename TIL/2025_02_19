@@ -1,0 +1,39 @@
+목표 - 타일맵 한 칸씩 이동
+
+private void MoveToTarget()
+{
+    if (!isMoving) return;
+    rb.MovePosition(Vector2.MoveTowards(rb.position, targetPosition, currentSpeed * Time.fixedDeltaTime));
+    if (Vector2.Distance(rb.position, targetPosition) < 0.01f)
+    {
+        rb.position = targetPosition;
+        isMoving = false;
+    }
+}
+
+빈 배경에서는 문제 없이 적용
+하지만 앞에 콜라이더가 있을 경우 targetPosition에 도달하지 못해 메서드 무한 반복
+
+ private bool IsColliding(Vector2 target)
+ {
+     int playerlayer = LayerMask.GetMask("Player");
+     int triggerobj = LayerMask.GetMask("TriggerObj");
+     int mask = ~(playerlayer | triggerobj);
+     Vector2 direction = (target - (Vector2)transform.position).normalized;
+     RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, direction, GridSize.x,mask);
+     if (hit.collider != null)
+     {
+         return true; // 충돌 발생
+     }
+     return false; // 이동 가능
+ }
+
+ 타겟의 방향으로 RaycastHit2D를 이용해 앞에 있는 오브젝트를 미리 검사하고 있을 경우 이동을 못하게 변경
+==================================================================================================================================================================
+
+목표 - 오브젝트의 근처에 가서 특정 키를 입력하였을 경우 원하는 대사 출력
+초기 행동 - 시간이 부족하여 파일로 관리하는건 힘들다고 여겨 스크립트에 다 다른 스크립트를 붙여 출력
+진행 - 진행 중 이건 아닌거 같다 여겨 Dictionary형태로 키값을 오브젝트의 이름으로 지정해 하나의 스크립트로 압축
+문제 발생 - 기능이 제대로 작용할 떄도 있고, 안될 때도 있음
+해결 - 여러 update문에서 기능을 분할하여 작동하는 구조였기 떄문에, 근처에 왔음을 알리기만 하는 Trigger와 전체적인 동작을 하는  Manager을 만들어 2개의 스크립트로 분리
+
